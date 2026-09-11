@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JADARA - Panel Directo</title>
-    <!-- CORREGIDO: Importación correcta de fuentes de Google -->
+    <!-- Fuentes de Google corregidas -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://googleapis.com" rel="stylesheet">
@@ -51,14 +51,14 @@
         </form>
     </div>
 
-    <!-- CORREGIDO: Importaciones y librerías oficiales completas de Firebase desde CDN -->
+    <!-- CDN oficial de Firebase con los módulos listos para producción -->
     <script type="module">
         import { initializeApp } from "https://gstatic.com";
         import { getFirestore, collection, addDoc } from "https://gstatic.com";
 
         const firebaseConfig = {
             apiKey: "AIzaSyA-0kfqwKNCZmhH26kqALHuHmkkpp8B56U",
-            authDomain: "jadara-6628b.firebaseapp.com", // Corregido el authDomain roto
+            authDomain: "jadara-6628b.firebaseapp.com", 
             projectId: "jadara-6628b",
             storageBucket: "jadara-6628b.firebasestorage.app",
             messagingSenderId: "76447900274",
@@ -89,9 +89,10 @@
                 const formData = new FormData();
                 formData.append("image", foto);
 
+                // API Key de ImgBB provista
                 const apiKeyImgBB = "6db7d47eb3d3e23ff507c57b98d1a1b1"; 
 
-                // CORREGIDO: Ruta de la API de ImgBB corregida para enviar la llave como parámetro formal
+                // URL e integración de ImgBB corregida
                 const respuestaImg = await fetch(`https://imgbb.com{apiKeyImgBB}`, {
                     method: "POST",
                     body: formData
@@ -100,9 +101,10 @@
                 const resultadoJson = await respuestaImg.json();
 
                 if (!resultadoJson.success) {
-                    throw new Error("Fallo al subir la imagen.");
+                    throw new Error("Fallo al subir la imagen a ImgBB.");
                 }
 
+                // URL pública generada por ImgBB
                 const urlPublicaImagen = resultadoJson.data.url;
 
                 const nuevoProducto = {
@@ -114,14 +116,15 @@
                     fechaCreacion: new Date()
                 };
 
+                // Guardado directo en la colección de Firebase
                 await addDoc(collection(db, "productos"), nuevoProducto);
                 
                 alert("¡Producto publicado con éxito en JADARA!");
                 document.getElementById('form-producto').reset();
 
             } catch (error) {
-                console.error("Error: ", error);
-                alert("Hubo un error al publicar. Inténtalo de nuevo.");
+                console.error("Error detallado del proceso: ", error);
+                alert("Hubo un error al publicar. Revisa la consola de desarrollador de tu navegador para ver el detalle.");
             } finally {
                 boton.disabled = false;
                 textoCarga.style.display = "none";

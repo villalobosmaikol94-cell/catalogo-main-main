@@ -7,9 +7,9 @@
     <!-- IMPORTACIÓN DE FUENTES PREMIUM DESDE GOOGLE FONTS -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com" rel="stylesheet">
+    <link href="https://googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
     <!-- Forzamos la actualización de estilos incrementando la versión -->
-    <link rel="stylesheet" href="estilos.css?v=2.0">
+    <link rel="stylesheet" href="estilos.css?v=1.9">
 </head>
 <body>
 
@@ -33,11 +33,11 @@
         </div>
     </header>
 
-    <!-- MENÚ DE CATEGORÍAS CON FILTRO FORZADO DE REBOTE -->
+    <!-- MENÚ DE CATEGORÍAS -->
     <div class="categorias-contenedor">
-        <a href="#" class="btn-categoria activo" data-filter="todo" onclick="filtrarProductos('todo')">Todo</a>
-        <a href="#" class="btn-categoria" data-filter="calzado" onclick="filtrarProductos('calzado')">Calzado</a>
-        <a href="#" class="btn-categoria" data-filter="belleza" onclick="filtrarProductos('belleza')">Belleza</a>
+        <button class="btn-categoria activo" data-filter="todo" onclick="filtrarProductos('todo')">Todo</button>
+        <button class="btn-categoria" data-filter="calzado" onclick="filtrarProductos('calzado')">Calzado</button>
+        <button class="btn-categoria" data-filter="belleza" onclick="filtrarProductos('belleza')">Belleza</button>
     </div>
 
     <!-- Contenedor del Catálogo -->
@@ -67,7 +67,7 @@
             <img src="nikeshoxtl.png" alt="Nike Shox TL" class="foto-producto">
             <div class="info-producto">
                 <h3>Nike Shox TL</h3>
-                <p class="descripcion">Diseño icónico con columnas de amortiguación expuestas, estilo urbano y máxima resistencia.</p>
+                <p class="descripcion">Diseño icónico con columnas de amortiguación expuestas, estilo urbano y máxima resistencia. <br><strong>Tallas: Disponibles bajo pedido.</strong></p>
                 <span class="precio">$170.000 COP</span>
                 <a href="whatsapp://send?phone=573246670248&text=Hola%20JADARA,%20me%20interesan%20las%20Nike%20Shox%20TL%20de%20$170.000" class="btn-whatsapp">
                     Pedir por WhatsApp
@@ -101,22 +101,9 @@
             </div>
         </div>
 
-        <!-- PRODUCTO 5: SALVATORE COÑAC -->
-        <div class="tarjeta-producto" data-category="calzado">
-            <img src="salvatore.png" alt="Salvatore Coñac" class="foto-producto">
-            <div class="info-producto">
-                <h3>Salvatore Coñac</h3>
-                <p class="descripcion">Estilo, comodidad y durabilidad. El equilibrio perfecto entre elegancia y confort. <br><strong>Tallas: 36 al 44.</strong></p>
-                <span class="precio">$90.000 COP</span>
-                <a href="whatsapp://send?phone=573246670248&text=Hola%20JADARA,%20me%20interesan%20los%20Salvatore%20Co%C3%B1ac%20de%20$90.000" class="btn-whatsapp">
-                    Pedir por WhatsApp
-                </a>
-            </div>
-        </div>
-
-        <!-- PRODUCTO DE BELLEZA 1: PERFUME KAIAK -->
+        <!-- PRODUCTO 5: PERFUME KAIAK -->
         <div class="tarjeta-producto" data-category="belleza">
-            <img src="kaiaʞ.png" alt="Perfume KAIAK" class="foto-producto">
+            <img src="kaiaχ.png" alt="Perfume KAIAK" class="foto-producto">
             <div class="info-producto">
                 <h3>Perfume KAIAK</h3>
                 <p class="descripcion">Fragancia icónica de alta fijación. Una explosión de frescura cítrica y notas aromáticas acuáticas, ideal para el día a día.</p>
@@ -127,27 +114,14 @@
             </div> 
         </div>
 
-        <!-- PRODUCTO DE BELLEZA 2: CREMA FACIAL -->
-        <div class="tarjeta-producto" data-category="belleza">
-            <img src="crema-hidratante.png" alt="Crema Hydratante Facial" class="foto-producto">
+        <!-- 👇 AQUÍ ABAJO PUEDES PEGAR TUS NUEVOS PRODUCTOS IGUAL QUE ANTES 👇 -->
+        <div class="tarjeta-producto" data-category="calzado">
+            <img src="salvatore.png" alt="Calzado Salvatore" class="foto-producto">
             <div class="info-producto">
-                <h3>Crema Hidratante Facial</h3>
-                <p class="descripcion">Enriquecida con ácido hialurónico y vitamina E. Absorción rápida para una piel suave, luminosa y protegida.</p>
-                <span class="precio">$45.000 COP</span>
-                <a href="whatsapp://send?phone=573246670248&text=Hola%20JADARA,%20me%20interesa%20la%20Crema%20Hidratante%20Facial%20de%20$45.000" class="btn-whatsapp">
-                    Pedir por WhatsApp
-                </a>
-            </div>
-        </div>
-
-        <!-- PRODUCTO DE BELLEZA 3: LABIAL MATTE -->
-        <div class="tarjeta-producto" data-category="belleza">
-            <img src="labial-matte.png" alt="Labial Matte JADARA" class="foto-producto">
-            <div class="info-producto">
-                <h3>Labial Velvet Matte</h3>
-                <p class="descripcion">Color intenso de alta pigmentación and acabado mate aterciopelado. No reseca los labios y dura todo el día.</p>
-                <span class="precio">$25.000 COP</span>
-                <a href="whatsapp://send?phone=573246670248&text=Hola%20JADARA,%20me%20interesa%20el%20Labial%20Velvet%20Matte%20de%20$25.000" class="btn-whatsapp">
+                <h3>Calzado Salvatore</h3>
+                <p class="descripcion">Diseño premium con acabados de alta calidad, comodidad ideal para el uso diario. <br><strong>Tallas: 38 al 42.</strong></p>
+                <span class="precio">$190.000 COP</span>
+                <a href="whatsapp://send?phone=573246670248&text=Hola%20JADARA,%20me%20interesa%20el%20Calzado%20Salvatore%20de%20$190.000" class="btn-whatsapp">
                     Pedir por WhatsApp
                 </a>
             </div>
@@ -159,34 +133,31 @@
         <p>© 2026 JADARA - Belleza con propósito. Todos los derechos reservados.</p>
     </footer>
 
+    <!-- INTERACCIONES EN VIVO GENERALES CORREGIDAS -->
     <script>
-        // 1. Ocultar pantalla de bienvenida
+        // Ocultar pantalla de bienvenida
         window.addEventListener('load', () => {
             setTimeout(() => {
                 const pantalla = document.getElementById('pantalla-carga');
                 if (pantalla) pantalla.classList.add('ocultar-carga');
-            }, 1000);
+            }, 1300);
         });
 
-        // 2. Función lógica para filtrar productos por categoría
-        function filtrarProductos(categoria) {
-            const productos = document.querySelectorAll('.tarjeta-producto');
+        // Función de Filtros corregida y cerrada correctamente
+        function filtrarProductos(filtro) {
+            // Cambiar botón activo
             const botones = document.querySelectorAll('.btn-categoria');
+            botones.forEach(btn => btn.classList.remove('activo'));
+            event.target.classList.add('activo');
 
-            botones.forEach(btn => {
-                if(btn.getAttribute('data-filter') === categoria) {
-                    btn.classList.add('activo');
+            // Filtrar las tarjetas
+            const tarjetas = document.querySelectorAll('.tarjeta-producto');
+            tarjetas.forEach(tarjeta => {
+                const categoria = tarjeta.getAttribute('data-category');
+                if (filtro === 'todo' || categoria === filtro) {
+                    tarjeta.style.display = "block";
                 } else {
-                    btn.classList.remove('activo');
-                }
-            });
-
-            productos.forEach(producto => {
-                const catProducto = producto.getAttribute('data-category');
-                if (categoria === 'todo' || catProducto === categoria) {
-                    producto.style.display = 'block';
-                } else {
-                    producto.style.display = 'none';
+                    tarjeta.style.display = "none";
                 }
             });
         }
