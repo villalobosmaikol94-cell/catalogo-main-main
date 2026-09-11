@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JADARA - Catálogo Oficial</title>
     <!-- IMPORTACIÓN DE FUENTES PREMIUM DESDE GOOGLE FONTS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
     <!-- Forzamos la actualización de estilos incrementando la versión -->
     <link rel="stylesheet" href="estilos.css?v=1.9">
 </head>
@@ -54,11 +54,21 @@
             </div>
             <div class="info-producto">
                 <h3>Skechers Max Slip</h3>
-                <p class="descripcion">Máximo confort y amortiguación sin cordones. Disponibles en Gris y Negro. <br><strong>Tallas: 44 y 45.</strong></p>
+                <p class="descripcion">Máximo confort y amortiguación sin cordones. Disponibles en Gris y Negro.</p>
                 <span class="precio">$155.000 COP</span>
-                <a href="whatsapp://send?phone=573246670248&text=Hola%20JADARA,%20me%20interesan%20las%20Skechers%20Max%20Slip%20de%20$155.000" class="btn-whatsapp">
+                
+                <!-- Selector Talla Skechers -->
+                <div class="selector-talla-contenedor" style="margin: 10px 0; text-align: left;">
+                    <label for="talla-skechers" style="font-size: 0.85rem; font-weight: bold; color: #8c7365;">Selecciona tu Talla:</label>
+                    <select id="talla-skechers" style="width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #f0e6e1; border-radius: 8px; font-family: inherit; color: #4a3b32;">
+                        <option value="44">Talla 44</option>
+                        <option value="45">Talla 45</option>
+                    </select>
+                </div>
+
+                <button onclick="enviarPedido('Skechers Max Slip', '$155.000', 'talla-skechers')" class="btn-whatsapp" style="width:100%; background-color:#b57c7c; color:white; border:none; padding:12px; border-radius:25px; font-weight:bold; cursor:pointer; font-size: 0.95rem;">
                     Pedir por WhatsApp
-                </a>
+                </button>
             </div>
         </div>
 
@@ -69,9 +79,23 @@
                 <h3>Nike Shox TL</h3>
                 <p class="descripcion">Diseño icónico con columnas de amortiguación expuestas, estilo urbano y máxima resistencia.</p>
                 <span class="precio">$170.000 COP</span>
-                <a href="whatsapp://send?phone=573246670248&text=Hola%20JADARA,%20me%20interesan%20las%20Nike%20Shox%20TL%20de%20$170.000" class="btn-whatsapp">
+                
+                <!-- Selector Talla Nike Shox (Tallas comunes para pedido) -->
+                <div class="selector-talla-contenedor" style="margin: 10px 0; text-align: left;">
+                    <label for="talla-shox" style="font-size: 0.85rem; font-weight: bold; color: #8c7365;">Selecciona tu Talla:</label>
+                    <select id="talla-shox" style="width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #f0e6e1; border-radius: 8px; font-family: inherit; color: #4a3b32;">
+                        <option value="38">Talla 38</option>
+                        <option value="39">Talla 39</option>
+                        <option value="40">Talla 40</option>
+                        <option value="41">Talla 41</option>
+                        <option value="42">Talla 42</option>
+                        <option value="43">Talla 43</option>
+                    </select>
+                </div>
+
+                <button onclick="enviarPedido('Nike Shox TL', '$170.000', 'talla-shox')" class="btn-whatsapp" style="width:100%; background-color:#b57c7c; color:white; border:none; padding:12px; border-radius:25px; font-weight:bold; cursor:pointer; font-size: 0.95rem;">
                     Pedir por WhatsApp
-                </a>
+                </button>
             </div>
         </div>
 
@@ -82,9 +106,22 @@
                 <h3>Nike Zoom Supercar (Caballero)</h3>
                 <p class="descripcion">Diseño aerodinámico de alto rendimiento, máxima amortiguación Zoom Air y estilo urbano único.</p>
                 <span class="precio">$185.000 COP</span>
-                <a href="whatsapp://send?phone=573246670248&text=Hola%20JADARA,%20me%20interesan%20las%20Nike%20Zoom%20Supercar%20de%20Caballero%20de%20$185.000" class="btn-whatsapp">
+                
+                <!-- Selector Talla Zoom Caballero -->
+                <div class="selector-talla-contenedor" style="margin: 10px 0; text-align: left;">
+                    <label for="talla-zoom-cab" style="font-size: 0.85rem; font-weight: bold; color: #8c7365;">Selecciona tu Talla:</label>
+                    <select id="talla-zoom-cab" style="width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #f0e6e1; border-radius: 8px; font-family: inherit; color: #4a3b32;">
+                        <option value="39">Talla 39</option>
+                        <option value="40">Talla 40</option>
+                        <option value="41">Talla 41</option>
+                        <option value="42">Talla 42</option>
+                        <option value="43">Talla 43</option>
+                    </select>
+                </div>
+
+                <button onclick="enviarPedido('Nike Zoom Supercar (Caballero)', '$185.000', 'talla-zoom-cab')" class="btn-whatsapp" style="width:100%; background-color:#b57c7c; color:white; border:none; padding:12px; border-radius:25px; font-weight:bold; cursor:pointer; font-size: 0.95rem;">
                     Pedir por WhatsApp
-                </a>
+                </button>
             </div>
         </div>
 
@@ -93,11 +130,23 @@
             <img src="nike-zoom-supercar.png" alt="Nike Zoom Supercar Dama" class="foto-producto">
             <div class="info-producto">
                 <h3>Nike Zoom Supercar (Dama)</h3>
-                <p class="descripcion">Máxima comodidad y amortiguación Zoom Air. <br><strong>Tallas: Eur 36 al Eur 39.</strong></p>
+                <p class="descripcion">Máxima comodidad y amortiguación Zoom Air. Ideal para entrenar o uso diario.</p>
                 <span class="precio">$145.000 COP</span>
-                <a href="whatsapp://send?phone=573246670248&text=Hola%20JADARA,%20me%20interesan%20las%20Nike%20Zoom%20Supercar%20de%20Dama%20de%20$145.000" class="btn-whatsapp">
+                
+                <!-- Selector Talla Zoom Dama (36 al 39) -->
+                <div class="selector-talla-contenedor" style="margin: 10px 0; text-align: left;">
+                    <label for="talla-zoom-dam" style="font-size: 0.85rem; font-weight: bold; color: #8c7365;">Selecciona tu Talla:</label>
+                    <select id="talla-zoom-dam" style="width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #f0e6e1; border-radius: 8px; font-family: inherit; color: #4a3b32;">
+                        <option value="36">Talla 36</option>
+                        <option value="37">Talla 37</option>
+                        <option value="38">Talla 38</option>
+                        <option value="39">Talla 39</option>
+                    </select>
+                </div>
+
+                <button onclick="enviarPedido('Nike Zoom Supercar (Dama)', '$145.000', 'talla-zoom-dam')" class="btn-whatsapp" style="width:100%; background-color:#b57c7c; color:white; border:none; padding:12px; border-radius:25px; font-weight:bold; cursor:pointer; font-size: 0.95rem;">
                     Pedir por WhatsApp
-                </a>
+                </button>
             </div>
         </div>
 
@@ -108,7 +157,9 @@
                 <h3>Perfume KAIAK</h3>
                 <p class="descripcion">Fragancia icónica de alta fijación. Una explosión de frescura cítrica y notas aromáticas acuáticas, ideal para el día a día.</p>
                 <span class="precio">$100.000 COP</span>
-                <a href="whatsapp://send?phone=573246670248&text=Hola%20JADARA,%20me%20interesa%20el%20Perfume%20KAIAK%20de%20$100.000" class="btn-whatsapp">
+                
+                <!-- Botón clásico directo para perfumes (No necesita talla) -->
+                <a href="whatsapp://send?phone=573246670248&text=Hola%20JADARA,%20me%20interesa%20el%20Perfume%20KAIAK%20de%20$100.000" class="btn-whatsapp" style="display:block; text-align:center; text-decoration:none;">
                     Pedir por WhatsApp
                 </a>
             </div> 
@@ -117,81 +168,3 @@
         <!-- PRODUCTO 6: CREMA FACIAL -->
         <div class="tarjeta-producto" data-category="belleza">
             <img src="crema-hidratante.png" alt="Crema Hydratante Facial" class="foto-producto">
-            <div class="info-producto">
-                <h3>Crema Hidratante Facial</h3>
-                <p class="descripcion">Enriquecida con ácido hialurónico y vitamina E. Absorción rápida para una piel suave, luminosa y protegida.</p>
-                <span class="precio">$45.000 COP</span>
-                <a href="whatsapp://send?phone=573246670248&text=Hola%20JADARA,%20me%20interesa%20la%20Crema%20Hidratante%20Facial%20de%20$45.000" class="btn-whatsapp">
-                    Pedir por WhatsApp
-                </a>
-            </div>
-        </div>
-
-        <!-- PRODUCTO 7: LABIAL MATTE -->
-        <div class="tarjeta-producto" data-category="belleza">
-            <img src="labial-matte.png" alt="Labial Matte JADARA" class="foto-producto">
-            <div class="info-producto">
-                <h3>Labial Velvet Matte</h3>
-                <p class="descripcion">Color intenso de alta pigmentación y acabado mate aterciopelado. No reseca los labios y dura todo el día.</p>
-                <span class="precio">$25.000 COP</span>
-                <a href="whatsapp://send?phone=573246670248&text=Hola%20JADARA,%20me%20interesa%20el%20Labial%20Velvet%20Matte%20de%20$25.000" class="btn-whatsapp">
-                    Pedir por WhatsApp
-                </a>
-            </div>
-        </div>
-
-        <!-- PRODUCTO 8: SALVATORE (AGREGADO) -->
-        <div class="tarjeta-producto" data-category="calzado">
-            <img src="salvatore.png" alt="Calzado Salvatore" class="foto-producto">
-            <div class="info-producto">
-                <h3>Calzado Salvatore</h3>
-                <p class="descripcion">Diseño premium con acabados de alta calidad, comodidad ideal para el uso diario. <br><strong>Tallas: 36 a la 44.</strong></p>
-                <span class="precio">$95.000 COP</span>
-                <a href="whatsapp://send?phone=573246670248&text=Hola%20JADARA,%20me%20interesan%20las%20Salvatore%20de%20$95.000" class="btn-whatsapp">
-                    Pedir por WhatsApp
-                </a>
-            </div>
-        </div>
-
-        <!-- 👇 AQUÍ ABAJO PEGARÁS TUS PRÓXIMOS TENIS EN EL FUTURO 👇 -->
-
-    </main>
-
-    <footer>
-        <p>© 2026 JADARA - Belleza con propósito. Todos los derechos reservados.</p>
-    </footer>
-
-    <!-- INTERACCIONES EN VIVO GENERALES COMPLETAMENTE REPARADAS -->
-    <script>
-        // Ocultar pantalla de bienvenida
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                const pantalla = document.getElementById('pantalla-carga');
-                if (pantalla) pantalla.classList.add('ocultar-carga');
-            }, 1300);
-        });
-
-        // Función global de Filtros corregida y cerrada correctamente
-        function filtrarProductos(filtro) {
-            // Cambiar estado del botón activo
-            const botones = document.querySelectorAll('.btn-categoria');
-            botones.forEach(btn => btn.classList.remove('activo'));
-            
-            if (event && event.target) {
-                event.target.classList.add('activo');
-            }
-
-            // Filtrar las tarjetas físicas de productos
-            const tarjetas = document.querySelectorAll('.tarjeta-producto');
-            tarjetas.forEach(tarjeta => {
-                const categoria = tarjeta.getAttribute('data-category');
-                if (filtro === 'todo' || categoria === filtro) {
-                    tarjeta.style.display = "block";
-                } else {
-                    tarjeta.style.display = "none";
-                }
-            });
-        }
-    </script>
-</body>
-</html>
