@@ -33,7 +33,7 @@
         </div>
     </header>
 
-    <!-- MENÚ DE CATEGORÍAS -->
+    <!-- MENÚ DE CATEGORÍAS CON FILTRO FORZADO -->
     <div class="categorias-contenedor">
         <button class="btn-categoria activo" data-filter="todo" onclick="filtrarProductos('todo')">Todo</button>
         <button class="btn-categoria" data-filter="calzado" onclick="filtrarProductos('calzado')">Calzado</button>
@@ -67,7 +67,7 @@
             <img src="nikeshoxtl.png" alt="Nike Shox TL" class="foto-producto">
             <div class="info-producto">
                 <h3>Nike Shox TL</h3>
-                <p class="descripcion">Diseño icónico con columnas de amortiguación expuestas, estilo urbano y máxima resistencia. <br><strong>Tallas: Disponibles bajo pedido.</strong></p>
+                <p class="descripcion">Diseño icónico con columnas de amortiguación expuestas, estilo urbano y máxima resistencia.</p>
                 <span class="precio">$170.000 COP</span>
                 <a href="whatsapp://send?phone=573246670248&text=Hola%20JADARA,%20me%20interesan%20las%20Nike%20Shox%20TL%20de%20$170.000" class="btn-whatsapp">
                     Pedir por WhatsApp
@@ -103,7 +103,7 @@
 
         <!-- PRODUCTO 5: PERFUME KAIAK -->
         <div class="tarjeta-producto" data-category="belleza">
-            <img src="kaiaχ.png" alt="Perfume KAIAK" class="foto-producto">
+            <img src="kaiaʞ.png" alt="Perfume KAIAK" class="foto-producto">
             <div class="info-producto">
                 <h3>Perfume KAIAK</h3>
                 <p class="descripcion">Fragancia icónica de alta fijación. Una explosión de frescura cítrica y notas aromáticas acuáticas, ideal para el día a día.</p>
@@ -114,18 +114,46 @@
             </div> 
         </div>
 
-        <!-- 👇 AQUÍ ABAJO PUEDES PEGAR TUS NUEVOS PRODUCTOS IGUAL QUE ANTES 👇 -->
+        <!-- PRODUCTO 6: CREMA FACIAL -->
+        <div class="tarjeta-producto" data-category="belleza">
+            <img src="crema-hidratante.png" alt="Crema Hydratante Facial" class="foto-producto">
+            <div class="info-producto">
+                <h3>Crema Hidratante Facial</h3>
+                <p class="descripcion">Enriquecida con ácido hialurónico y vitamina E. Absorción rápida para una piel suave, luminosa y protegida.</p>
+                <span class="precio">$45.000 COP</span>
+                <a href="whatsapp://send?phone=573246670248&text=Hola%20JADARA,%20me%20interesa%20la%20Crema%20Hidratante%20Facial%20de%20$45.000" class="btn-whatsapp">
+                    Pedir por WhatsApp
+                </a>
+            </div>
+        </div>
+
+        <!-- PRODUCTO 7: LABIAL MATTE -->
+        <div class="tarjeta-producto" data-category="belleza">
+            <img src="labial-matte.png" alt="Labial Matte JADARA" class="foto-producto">
+            <div class="info-producto">
+                <h3>Labial Velvet Matte</h3>
+                <p class="descripcion">Color intenso de alta pigmentación y acabado mate aterciopelado. No reseca los labios y dura todo el día.</p>
+                <span class="precio">$25.000 COP</span>
+                <a href="whatsapp://send?phone=573246670248&text=Hola%20JADARA,%20me%20interesa%20el%20Labial%20Velvet%20Matte%20de%20$25.000" class="btn-whatsapp">
+                    Pedir por WhatsApp
+                </a>
+            </div>
+        </div>
+
+        <!-- PRODUCTO 8: SALVATORE (NUEVO) -->
         <div class="tarjeta-producto" data-category="calzado">
             <img src="salvatore.png" alt="Calzado Salvatore" class="foto-producto">
             <div class="info-producto">
                 <h3>Calzado Salvatore</h3>
                 <p class="descripcion">Diseño premium con acabados de alta calidad, comodidad ideal para el uso diario. <br><strong>Tallas: 36 a la 44.</strong></p>
                 <span class="precio">$95.000 COP</span>
-                <a href="whatsapp://send?phone=573246670248&text=Hola%20JADARA,%20me%20interesa%20el%20Calzado%20Salvatore%20de%20$190.000" class="btn-whatsapp">
+                <a href="whatsapp://send?phone=573246670248&text=Hola%20JADARA,%20me%20interesan%20las%20Salvatore%20de%20$95.000" class="btn-whatsapp">
                     Pedir por WhatsApp
                 </a>
             </div>
         </div>
+
+        <!-- 👇 AQUÍ ABAJO PUEDES PEGAR TUS FUTUROS PRODUCTOS NUEVOS IGUAL QUE ANTES 👇 -->
 
     </main>
 
@@ -133,7 +161,7 @@
         <p>© 2026 JADARA - Belleza con propósito. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- INTERACCIONES EN VIVO GENERALES CORREGIDAS -->
+    <!-- INTERACCIONES EN VIVO GENERALES LIMPIAS -->
     <script>
         // Ocultar pantalla de bienvenida
         window.addEventListener('load', () => {
@@ -143,14 +171,15 @@
             }, 1300);
         });
 
-        // Función de Filtros corregida y cerrada correctamente
+        // Función de Filtros tradicional sin dependencias externas
         function filtrarProductos(filtro) {
-            // Cambiar botón activo
             const botones = document.querySelectorAll('.btn-categoria');
             botones.forEach(btn => btn.classList.remove('activo'));
-            event.target.classList.add('activo');
+            
+            if (event && event.target) {
+                event.target.classList.add('activo');
+            }
 
-            // Filtrar las tarjetas
             const tarjetas = document.querySelectorAll('.tarjeta-producto');
             tarjetas.forEach(tarjeta => {
                 const categoria = tarjeta.getAttribute('data-category');
