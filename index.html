@@ -33,7 +33,7 @@
         </div>
     </header>
 
-    <!-- MENÚ DE CATEGORÍAS CON FILTRO FORZADO -->
+    <!-- MENÚ DE CATEGORÍAS -->
     <div class="categorias-contenedor">
         <button class="btn-categoria activo" data-filter="todo" onclick="filtrarProductos('todo')">Todo</button>
         <button class="btn-categoria" data-filter="calzado" onclick="filtrarProductos('calzado')">Calzado</button>
@@ -140,7 +140,7 @@
             </div>
         </div>
 
-        <!-- PRODUCTO 8: SALVATORE (NUEVO) -->
+        <!-- PRODUCTO 8: SALVATORE (AGREGADO) -->
         <div class="tarjeta-producto" data-category="calzado">
             <img src="salvatore.png" alt="Calzado Salvatore" class="foto-producto">
             <div class="info-producto">
@@ -153,7 +153,7 @@
             </div>
         </div>
 
-        <!-- 👇 AQUÍ ABAJO PUEDES PEGAR TUS FUTUROS PRODUCTOS NUEVOS IGUAL QUE ANTES 👇 -->
+        <!-- 👇 AQUÍ ABAJO PEGARÁS TUS PRÓXIMOS TENIS EN EL FUTURO 👇 -->
 
     </main>
 
@@ -161,7 +161,7 @@
         <p>© 2026 JADARA - Belleza con propósito. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- INTERACCIONES EN VIVO GENERALES LIMPIAS -->
+    <!-- INTERACCIONES EN VIVO GENERALES -->
     <script>
         // Ocultar pantalla de bienvenida
         window.addEventListener('load', () => {
@@ -171,7 +171,7 @@
             }, 1300);
         });
 
-        // Función de Filtros tradicional sin dependencias externas
+        // Función global de Filtros
         function filtrarProductos(filtro) {
             const botones = document.querySelectorAll('.btn-categoria');
             botones.forEach(btn => btn.classList.remove('activo'));
