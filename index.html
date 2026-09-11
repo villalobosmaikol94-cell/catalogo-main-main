@@ -7,9 +7,9 @@
     <!-- IMPORTACIÓN DE FUENTES PREMIUM DESDE GOOGLE FONTS -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <link href="https://googleapis.com" rel="stylesheet">
     <!-- Forzamos la actualización de estilos incrementando la versión -->
-    <link rel="stylesheet" href="estilos.css?v=1.9">
+    <link rel="stylesheet" href="estilos.css?v=2.0">
 </head>
 <body>
 
@@ -43,7 +43,7 @@
     <!-- Contenedor del Catálogo -->
     <main class="catalogo">
 
-        <!-- PRODUCTO 1: SKECHERS (CORREGIDO A CALZADO) -->
+        <!-- PRODUCTO 1: SKECHERS -->
         <div class="tarjeta-producto" data-category="calzado">
             <div style="position: relative; width: 100%;">
                 <div class="indicador-deslizar">↔ Desliza color</div>
@@ -62,7 +62,7 @@
             </div>
         </div>
 
-        <!-- PRODUCTO 2: NIKE SHOX (CORREGIDO A CALZADO) -->
+        <!-- PRODUCTO 2: NIKE SHOX -->
         <div class="tarjeta-producto" data-category="calzado">
             <img src="nikeshoxtl.png" alt="Nike Shox TL" class="foto-producto">
             <div class="info-producto">
@@ -100,9 +100,9 @@
                 </a>
             </div>
         </div>
-                                     <!-- PRODUCTO 5: SALVATORE COÑAC -->
+
+        <!-- PRODUCTO 5: SALVATORE COÑAC -->
         <div class="tarjeta-producto" data-category="calzado">
-            <!-- Conectado directo a tu archivo de imagen local -->
             <img src="salvatore.png" alt="Salvatore Coñac" class="foto-producto">
             <div class="info-producto">
                 <h3>Salvatore Coñac</h3>
@@ -114,22 +114,18 @@
             </div>
         </div>
 
-
-        <!-- PRODCTO DE BELLEZA 1: PERFUME KAIAK (CORREGIDO) -->
-<div class="tarjeta-producto" data-category="belleza">
-    <!-- Se quitó "imagenes/" para que busque en la misma carpeta que los tenis -->
-    <img src="kaiaʞ.png" alt="Perfume KAIAK" class="foto-producto">
-    <div class="info-producto">
-        <h3>Perfume KAIAK</h3>
-        <p class="descripcion">Fragancia icónica de alta fijación. Una explosión de frescura cítrica y notas aromáticas acuáticas, ideal para el día a día.</p>
-        <span class="precio">$100.000 COP</span>
-        <a href="whatsapp://send?phone=573246670248&text=Hola%20JADARA,%20me%20interesa%20el%20Perfume%20KAIAK%20de%20$100.000" class="btn-whatsapp">
-            Pedir por WhatsApp
-        </a>
-    </div> 
-</div>
-
-
+        <!-- PRODUCTO DE BELLEZA 1: PERFUME KAIAK -->
+        <div class="tarjeta-producto" data-category="belleza">
+            <img src="kaiaʞ.png" alt="Perfume KAIAK" class="foto-producto">
+            <div class="info-producto">
+                <h3>Perfume KAIAK</h3>
+                <p class="descripcion">Fragancia icónica de alta fijación. Una explosión de frescura cítrica y notas aromáticas acuáticas, ideal para el día a día.</p>
+                <span class="precio">$100.000 COP</span>
+                <a href="whatsapp://send?phone=573246670248&text=Hola%20JADARA,%20me%20interesa%20el%20Perfume%20KAIAK%20de%20$100.000" class="btn-whatsapp">
+                    Pedir por WhatsApp
+                </a>
+            </div> 
+        </div>
 
         <!-- PRODUCTO DE BELLEZA 2: CREMA FACIAL -->
         <div class="tarjeta-producto" data-category="belleza">
@@ -149,7 +145,7 @@
             <img src="labial-matte.png" alt="Labial Matte JADARA" class="foto-producto">
             <div class="info-producto">
                 <h3>Labial Velvet Matte</h3>
-                <p class="descripcion">Color intenso de alta pigmentación y acabado mate aterciopelado. No reseca los labios y dura todo el día.</p>
+                <p class="descripcion">Color intenso de alta pigmentación and acabado mate aterciopelado. No reseca los labios y dura todo el día.</p>
                 <span class="precio">$25.000 COP</span>
                 <a href="whatsapp://send?phone=573246670248&text=Hola%20JADARA,%20me%20interesa%20el%20Labial%20Velvet%20Matte%20de%20$25.000" class="btn-whatsapp">
                     Pedir por WhatsApp
@@ -163,107 +159,37 @@
         <p>© 2026 JADARA - Belleza con propósito. Todos los derechos reservados.</p>
     </footer>
 
-        <!-- INTERACCIONES EN VIVO GENERALES Y CONEXIÓN FIREBASE -->
-    <script type="module">
-        import { initializeApp } from "https://gstatic.com";
-        import { getFirestore, collection, getDocs, query, orderBy } from "https://gstatic.com";
-
-        // Credenciales oficiales de JADARA
-        const firebaseConfig = {
-            apiKey: "AIzaSyA-0kfqwKNCZmhH26kqALHuHmkkpp8B56U",
-            authDomain: "://firebaseapp.com",
-            projectId: "jadara-6628b",
-            storageBucket: "jadara-6628b.firebasestorage.app",
-            messagingSenderId: "76447900274",
-            appId: "1:76447900274:web:6ebb6cd0c4650223e018eb",
-            measurementId: "G-7XKD4TE3YC"
-        };
-
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-        let todosLosProductos = []; // Almacena en memoria para filtrados rápidos
-
-        // Controlar la pantalla de carga e inicializar catálogo
+    <script>
+        // 1. Ocultar pantalla de bienvenida
         window.addEventListener('load', () => {
             setTimeout(() => {
                 const pantalla = document.getElementById('pantalla-carga');
                 if (pantalla) pantalla.classList.add('ocultar-carga');
-            }, 1300);
-            cargarProductosDesdeFirebase();
+            }, 1000);
         });
 
-        // Recuperar la lista de productos de Firestore
-        async function cargarProductosDesdeFirebase() {
-            const contenedor = document.getElementById('contenedor-productos');
-            try {
-                const q = query(collection(db, "productos"), orderBy("fechaCreacion", "desc"));
-                const querySnapshot = await getDocs(q);
-                
-                todosLosProductos = [];
-                querySnapshot.forEach((doc) => {
-                    todosLosProductos.push(doc.data());
-                });
-
-                renderizarProductos(todosLosProductos);
-            } catch (error) {
-                console.error("Error cargando productos: ", error);
-                if (contenedor) {
-                    contenedor.innerHTML = "<p style='grid-column: 1/-1; text-align:center;'>Hubo un problema al cargar el catálogo. Inténtalo más tarde.</p>";
-                }
-            }
-        }
-
-        // Renderizar las tarjetas de productos dinámicamente
-        function renderizarProductos(lista) {
-            const contenedor = document.getElementById('contenedor-productos');
-            if (!contenedor) return;
-            
-            contenedor.innerHTML = ""; 
-
-            if(lista.length === 0) {
-                contenedor.innerHTML = "<p style='grid-column: 1/-1; text-align:center; color:#8c7365;'>No hay productos en esta categoría por ahora.</p>";
-                return;
-            }
-
-            lista.forEach(prod => {
-                const textoWhatsApp = encodeURIComponent(`Hola JADARA, me interesa el producto ${prod.nombre} de ${prod.precio}`);
-                const linkWhatsApp = `https://wa.me{textoWhatsApp}`;
-
-                const tarjeta = document.createElement('div');
-                tarjeta.className = "tarjeta-producto";
-                tarjeta.innerHTML = `
-                    <img src="${prod.imagen}" alt="${prod.nombre}" class="foto-producto" onerror="this.src='logo.png'">
-                    <div class="info-producto">
-                        <h3>${prod.nombre}</h3>
-                        <p class="descripcion">${prod.descripcion}</p>
-                        <span class="precio">${prod.precio}</span>
-                        <a href="${linkWhatsApp}" target="_blank" class="btn-whatsapp">
-                            Pedir por WhatsApp
-                        </a>
-                    </div>
-                `;
-                contenedor.appendChild(tarjeta);
-            });
-        }
-
-        // Conectar la función de filtrado con los botones de categorías
-        window.filtrarProductos = function(filtro) {
-            if (window.event) window.event.preventDefault();
-            
+        // 2. Función lógica para filtrar productos por categoría
+        function filtrarProductos(categoria) {
+            const productos = document.querySelectorAll('.tarjeta-producto');
             const botones = document.querySelectorAll('.btn-categoria');
-            botones.forEach(btn => btn.classList.remove('activo'));
-            
-            const botonActivo = document.querySelector(`[data-filter="${filtro}"]`);
-            if (botonActivo) botonActivo.classList.add('activo');
 
-            if (filtro === 'todo') {
-                renderizarProductos(todosLosProductos);
-            } else {
-                const filtrados = todosLosProductos.filter(p => p.categoria === filtro);
-                renderizarProductos(filtrados);
-            }
+            botones.forEach(btn => {
+                if(btn.getAttribute('data-filter') === categoria) {
+                    btn.classList.add('activo');
+                } else {
+                    btn.classList.remove('activo');
+                }
+            });
+
+            productos.forEach(producto => {
+                const catProducto = producto.getAttribute('data-category');
+                if (categoria === 'todo' || catProducto === categoria) {
+                    producto.style.display = 'block';
+                } else {
+                    producto.style.display = 'none';
+                }
+            });
         }
     </script>
 </body>
 </html>
-

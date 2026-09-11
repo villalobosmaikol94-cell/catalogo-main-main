@@ -20,7 +20,7 @@
         #estado-carga { font-size: 0.85rem; color: #b57c7c; font-weight: bold; text-align: center; margin-top: 12px; display: none; }
     </style>
 
-    <!-- Compatibilidad garantizada para evitar bloqueos del navegador -->
+    <!-- Scripts de Firebase tradicionales para saltar bloqueos de seguridad locales -->
     <script src="https://gstatic.com"></script>
     <script src="https://gstatic.com"></script>
 </head>
@@ -55,6 +55,7 @@
     </div>
 
     <script>
+        // Configuración oficial de tu Firebase de JADARA
         const firebaseConfig = {
             apiKey: "AIzaSyA-0kfqwKNCZmhH26kqALHuHmkkpp8B56U",
             authDomain: "://firebaseapp.com",
@@ -65,6 +66,7 @@
             measurementId: "G-7XKD4TE3YC"
         };
 
+        // Inicializar la base de datos de manera segura
         firebase.initializeApp(firebaseConfig);
         const db = firebase.firestore();
 
@@ -84,13 +86,14 @@
             textoCarga.style.display = "block";
 
             try {
-                // CORREGIDO: Captura correcta del archivo de imagen
+                // CORREGIDO: Se añade [0] para capturar correctamente el archivo binario de la imagen
                 const foto = inputArchivo.files[0];
                 const formData = new FormData();
                 formData.append("image", foto);
 
                 const apiKeyImgBB = "6db7d47eb3d3e23ff507c57b98d1a1b1"; 
 
+                // Subida directa de la foto a los servidores globales de ImgBB
                 const respuestaImg = await fetch('https://imgbb.com' + apiKeyImgBB, {
                     method: "POST",
                     body: formData
@@ -99,11 +102,12 @@
                 const resultadoJson = await respuestaImg.json();
 
                 if (!resultadoJson || !resultadoJson.success) {
-                    throw new Error("ImgBB rechazó la imagen.");
+                    throw new Error("ImgBB rechazó la imagen. Intenta con otra foto.");
                 }
 
                 const urlPublicaImagen = resultadoJson.data.url;
 
+                // Registro dinámico directo en las colecciones de tu base de datos Firebase
                 await db.collection("productos").add({
                     nombre: document.getElementById('nombre').value,
                     categoria: document.getElementById('categoria').value,
@@ -117,8 +121,8 @@
                 document.getElementById('form-producto').reset();
 
             } catch (error) {
-                console.error("Error detectado: ", error);
-                alert("Hubo un error al subir el producto. Inténtalo de nuevo.");
+                console.error("Error detectado en el proceso: ", error);
+                alert("Hubo un error al publicar: " + error.message);
             } finally {
                 boton.disabled = false;
                 textoCarga.style.display = "none";
