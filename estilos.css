@@ -1,17 +1,6 @@
 /* ==========================================
-   1. VARIABLES DE DISEÑO Y CONFIGURACIÓN GENERAL
+   CONFIGURACIONES GENERALES
    ========================================== */
-:root {
-    --color-primario: #0b0b0b;     /* Negro premium para títulos y botones */
-    --color-secundario: #c5a880;   /* Dorado/arena suave para detalles elegantes */
-    --color-fondo: #fafafa;        /* Fondo claro y limpio */
-    --color-tarjeta: #ffffff;      /* Blanco puro para los bloques de productos */
-    --color-texto: #333333;        /* Gris oscuro para descripciones legibles */
-    --color-whatsapp: #25d366;     /* Verde corporativo de WhatsApp */
-    --fuente-titulos: 'Playfair Display', serif;
-    --fuente-cuerpo: 'Plus Jakarta Sans', sans-serif;
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -19,14 +8,13 @@
 }
 
 body {
-    background-color: var(--color-fondo);
-    font-family: var(--fuente-cuerpo);
-    color: var(--color-texto);
-    line-height: 1.6;
+    background-color: #fbf7f5; /* Fondo rosa pálido muy suave */
+    color: #4a3b32; /* Texto marrón oscuro elegante */
+    font-family: 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
 }
 
 /* ==========================================
-   2. PANTALLA DE APERTURA (SPLASH SCREEN)
+   PANTALLA DE CARGA / BIENVENIDA (SPLASH SCREEN)
    ========================================== */
 #pantalla-carga {
     position: fixed;
@@ -34,225 +22,397 @@ body {
     left: 0;
     width: 100%;
     height: 100vh;
-    background-color: var(--color-primario);
-    color: white;
+    background-color: #fbf7f5;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
-}
-
-/* Esta clase la añadiremos luego con JavaScript para ocultar la pantalla */
-#pantalla-carga.oculto {
-    opacity: 0;
-    visibility: hidden;
+    transition: opacity 0.6s ease, visibility 0.6s;
 }
 
 .contenido-carga {
     text-align: center;
+    animation: scaleUp 0.8s ease-out;
 }
 
 .logo-carga {
-    width: 90px;
-    height: auto;
-    margin-bottom: 15px;
-    animation: pulso 2s infinite ease-in-out;
+    max-width: 180px;
+    border-radius: 50%;
+    box-shadow: 0 10px 25px rgba(181, 124, 124, 0.2);
+    margin-bottom: 20px;
 }
 
 .contenido-carga h2 {
-    font-family: var(--fuente-titulos);
+    font-family: 'Playfair Display', serif;
     font-size: 2.2rem;
-    letter-spacing: 3px;
+    color: #b57c7c;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
 }
 
 .contenido-carga p {
-    font-size: 0.9rem;
-    color: var(--color-secundario);
-    letter-spacing: 1px;
+    color: #8c7365;
+    font-style: italic;
+    font-size: 1.1rem;
 }
 
-@keyframes pulso {
-    0%, 100% { transform: scale(1); opacity: 0.8; }
-    50% { transform: scale(1.05); opacity: 1; }
+@keyframes scaleUp {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.ocultar-carga {
+    opacity: 0;
+    visibility: hidden;
 }
 
 /* ==========================================
-   3. ENCABEZADO Y MENÚ DE CATEGORÍAS
+   NUEVO ENCABEZADO COMPACTO Y ELEGANTE
    ========================================== */
 header {
-    background-color: var(--color-tarjeta);
-    padding: 20px;
-    border-bottom: 1px solid #eaeaea;
-    text-align: center;
+    background-color: #ffffff;
+    padding: 15px 20px;
+    border-bottom: 2px solid #d4af37;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 99;
 }
 
 .header-container {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 10px;
+    justify-content: center;
+    gap: 15px;
 }
 
 .logo-min {
-    width: 50px;
+    max-width: 55px;
     height: auto;
+    border-radius: 50%;
 }
 
-.texto-header h1 {
-    font-family: var(--fuente-titulos);
+.texto-header {
+    text-align: left;
+}
+
+header h1 {
+    font-family: 'Playfair Display', serif;
     font-size: 1.8rem;
+    color: #b57c7c;
     letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 .eslogan {
-    font-size: 0.85rem;
-    color: #888888;
+    color: #8c7365;
+    font-size: 0.9rem;
+    font-style: italic;
+    margin-top: 2px;
 }
 
+/* ==========================================
+   BARRA DE CATEGORÍAS ELEGANTE (CORREGIDA)
+   ========================================== */
 .categorias-contenedor {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    padding: 15px;
-    background-color: var(--color-tarjeta);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    display: flex !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    padding: 20px 10px 5px 10px !important;
+    max-width: 1200px;
+    margin: 0 auto !important;
+    width: 100% !important;
 }
 
 .btn-categoria {
-    background: none;
-    border: 1px solid #ddd;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-family: var(--fuente-cuerpo);
-    font-size: 0.9rem;
+    background-color: #ffffff !important;
+    border: 1px solid #f0e6e1 !important;
+    color: #7a685d !important;
+    padding: 8px 18px !important;
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    border-radius: 20px !important;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02) !important;
+    -webkit-appearance: none; /* Quita el diseño por defecto de celulares */
+    appearance: none;
 }
 
 .btn-categoria.activo, .btn-categoria:hover {
-    background-color: var(--color-primario);
-    color: white;
-    border-color: var(--color-primario);
+    background-color: #b57c7c !important; /* Rosa de JADARA */
+    color: #ffffff !important;
+    border-color: #b57c7c !important;
+    box-shadow: 0 4px 10px rgba(181, 124, 124, 0.2) !important;
 }
 
+
 /* ==========================================
-   4. CONTENEDOR PRINCIPAL DEL CATÁLOGO
+   CUADRÍCULA DE PRODUCTOS (ESCRITORIO)
    ========================================== */
 .catalogo {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
-    padding: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 25px 20px 40px 20px;
     max-width: 1200px;
     margin: 0 auto;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* ==========================================
-   5. TARJETAS DE PRODUCTOS Y CARRUSEL
+   TARJETA DE PRODUCTO e INTERACCIONES
    ========================================== */
 .tarjeta-producto {
-    background-color: var(--color-tarjeta);
-    border-radius: 12px;
+    background-color: #fff;
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border: 1px solid #f0e6e1;
+    box-shadow: 0 6px 16px rgba(74, 59, 50, 0.05);
     display: flex;
     flex-direction: column;
-    transition: transform 0.3s ease;
+    justify-content: space-between;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
+                box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .tarjeta-producto:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(181, 124, 124, 0.2);
 }
 
-/* Estilos de imágenes fijas */
+/* Fotos estáticas normales */
 .foto-producto {
     width: 100%;
-    height: 250px;
-    object-fit: cover;
+    height: 320px;
+    object-fit: contain;
+    background-color: #ffffff;
+    padding: 15px;
+    border-bottom: 1px solid #f0e6e1;
+    transition: transform 0.5s ease;
 }
 
-/* Configuración de las imágenes con carrusel deslizable (Skechers) */
-.carrusel-contenedor {
+.tarjeta-producto:hover .foto-producto {
+    transform: scale(1.05);
+}
+
+/* ==========================================
+   INFO INTERNA Y TEXTOS
+   ========================================== */
+.info-producto {
+    padding: 25px;
+    text-align: center;
+    flex-grow: 1;
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.info-producto h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #4a3b32;
+    font-weight: 700;
+}
+
+.descripcion {
+    font-size: 0.95rem;
+    color: #7a685d;
+    margin-bottom: 20px;
+    height: 45px;
+    overflow: hidden;
+}
+
+.precio {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #b57c7c;
+    margin-bottom: 20px;
+}
+
+/* ==========================================
+   BOTÓN WHATSAPP
+   ========================================== */
+.btn-whatsapp {
+    display: inline-block;
+    background-color: #25d366; 
+    color: white;
+    padding: 14px 20px;
+    border-radius: 30px; 
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s, transform 0.2s;
+    width: 100%;
+}
+
+.btn-whatsapp:hover {
+    transform: scale(1.02);
+    background-color: #128c7e;
+}
+
+/* ==========================================
+   CARRUSEL DE FOTOS (SKECHERS)
+   ========================================== */
+.carrusel-contenedor {
+    width: 100%;
+    height: 320px;
     overflow-x: auto;
+    overflow-y: hidden;
+    display: flex;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    height: 250px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #f0e6e1;
+    position: relative;
 }
 
-/* Ocultar barra de scroll estéticamente */
 .carrusel-contenedor::-webkit-scrollbar {
     display: none;
 }
 
 .carrusel-foto {
-    flex: 0 0 100%;
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
+    min-width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: 320px;
+    object-fit: contain;
     scroll-snap-align: start;
+    padding: 15px;
+    transition: transform 0.5s ease;
+}
+
+.tarjeta-producto:hover .carrusel-foto {
+    transform: scale(1.04);
 }
 
 .indicador-deslizar {
     position: absolute;
-    bottom: 10px;
-    right: 10px;
-    background-color: rgba(0, 0, 0, 0.6);
+    top: 10px;
+    left: 10px; /* Cambiado a la izquierda para que nunca se corte con el borde lateral */
+    background: rgba(181, 124, 124, 0.85);
     color: white;
-    padding: 4px 10px;
-    border-radius: 12px;
-    font-size: 0.75rem;
-    z-index: 10;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.65rem;
+    font-weight: bold;
     pointer-events: none;
+    z-index: 10;
+    letter-spacing: 0.5px;
+}
+
+
+/* ==========================================
+   PIE DE PÁGINA
+   ========================================== */
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #a39085;
+    font-size: 0.9rem;
 }
 
 /* ==========================================
-   6. INFORMACIÓN Y BOTÓN DE WHATSAPP
+   OPTIMIZACIÓN PREMIUM PARA CELULARES 
    ========================================== */
-.info-producto {
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
+@media (max-width: 580px) {
+    header {
+        padding: 12px 15px;
+    }
+    
+    header h1 {
+        font-size: 1.4rem !important;
+        letter-spacing: 1px;
+    }
+    
+    .eslogan {
+        font-size: 0.75rem !important;
+    }
 
-.info-producto h3 {
-    font-size: 1.1rem;
-    margin-bottom: 8px;
-    font-weight: 600;
-}
+    .logo-min {
+        max-width: 45px;
+    }
 
-.descripcion {
-    font-size: 0.85rem;
-    color: #666;
-    margin-bottom: 15px;
-    flex-grow: 1;
-}
+    .categorias-contenedor {
+        padding: 15px 8px 0px 8px;
+        gap: 6px;
+    }
 
-.precio {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--color-primario);
-    margin-bottom: 15px;
-}
+    .btn-categoria {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
 
-.btn-whatsapp {
-    background-color: var(--color-whatsapp);
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    padding: 10px;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 0.95rem;
-    display: block;
-    transition: background-color 0.3s ease;
-}
+    /* 2 Columnas perfectas tipo Instagram Shop */
+    .catalogo {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+        padding: 15px 10px !important;
+    }
 
-.btn-whatsapp:hover {
-    background-color: #1ebea5;
+    .tarjeta-producto {
+        border-radius: 12px;
+    }
+
+    /* Fotos a 230px */
+    .foto-producto, 
+    .carrusel-contenedor {
+        height: 230px !important; 
+        padding: 5px !important;
+    }
+    
+    .carrusel-foto {
+        max-height: 230px !important;
+        padding: 5px !important;
+    }
+
+    .indicador-deslizar {
+        top: 8px;
+        right: 8px;
+        padding: 3px 8px;
+        font-size: 0.65rem;
+    }
+
+    .info-producto {
+        padding: 12px;
+    }
+
+    .info-producto h3 {
+        font-size: 0.95rem;
+        margin-bottom: 4px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .descripcion {
+        font-size: 0.8rem;
+        margin-bottom: 10px;
+        height: auto;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .precio {
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+    }
+
+    .btn-whatsapp {
+        padding: 10px 10px;
+        font-size: 0.85rem;
+        letter-spacing: 0px;
+    }
 }
