@@ -494,3 +494,195 @@ footer {
     .cerrar-modal { right: 20px; top: 10px; font-size: 35px; }
 }
 
+/* ==========================================
+   DISEÑO DEL CARRITO EN EL ENCABEZADO
+   ========================================== */
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Separa el logo a la izquierda y el carrito a la derecha */
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header-logo-texto {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#btn-carrito-encabezado {
+    background-color: #ffffff;
+    border: 1px solid #f0e6e1;
+    padding: 10px 18px;
+    border-radius: 20px;
+    font-family: var(--fuente-cuerpo);
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #4a3b32;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(74, 59, 50, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#btn-carrito-encabezado:hover {
+    background-color: #b57c7c;
+    color: white;
+    border-color: #b57c7c;
+    box-shadow: 0 4px 12px rgba(181, 124, 124, 0.3);
+}
+
+#contador-carrito {
+    background-color: #b57c7c;
+    color: white;
+    font-size: 0.8rem;
+    padding: 2px 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+#btn-carrito-encabezado:hover #contador-carrito {
+    background-color: white;
+    color: #b57c7c;
+}
+
+/* ==========================================
+   BARRA LATERAL OCULTA DEL CARRITO (SIDEBAR)
+   ========================================== */
+#carrito-lateral {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 380px;
+    max-width: 100%;
+    height: 100vh;
+    background-color: #ffffff;
+    z-index: 10005; /* Por encima de todo */
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* Clases para abrir y cerrar deslizándose */
+.carrito-abierto {
+    transform: translateX(0);
+}
+
+.carrito-cerrado {
+    transform: translateX(100%); /* Lo esconde completamente hacia la derecha */
+}
+
+.header-carrito {
+    padding: 20px;
+    border-bottom: 1px solid #f0e6e1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fbf7f5;
+}
+
+.header-carrito h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #4a3b32;
+}
+
+.cerrar-carrito {
+    font-size: 28px;
+    font-weight: bold;
+    color: #a39085;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.cerrar-carrito:hover {
+    color: #b57c7c;
+}
+
+/* Zona de productos agregados */
+#items-carrito {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Diseño de cada producto dentro del carrito */
+.item-en-carrito {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f9f5f3;
+}
+
+.info-item-carrito h4 {
+    font-size: 0.95rem;
+    color: #4a3b32;
+    margin-bottom: 2px;
+}
+
+.info-item-carrito p {
+    font-size: 0.85rem;
+    color: #b57c7c;
+    font-weight: bold;
+}
+
+.btn-eliminar-item {
+    background: none;
+    border: none;
+    color: #b57c7c;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: transform 0.2s;
+}
+
+.btn-eliminar-item:hover {
+    transform: scale(1.15);
+}
+
+/* Parte baja del carrito */
+.footer-carrito {
+    padding: 20px;
+    border-top: 1px solid #f0e6e1;
+    background-color: #fbf7f5;
+}
+
+.total-contenedor {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #4a3b32;
+    margin-bottom: 15px;
+}
+
+#precio-total-carrito {
+    color: #b57c7c;
+}
+
+#btn-enviar-carrito {
+    background-color: #25d366;
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 14px;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.2);
+}
+
+#btn-enviar-carrito:hover {
+    background-color: #128c7e;
+    transform: translateY(-2px);
+}
