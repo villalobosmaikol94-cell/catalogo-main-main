@@ -62,9 +62,11 @@ body {
     to { transform: scale(1); opacity: 1; }
 }
 
-.ocultar-carga {
-    opacity: 0;
-    visibility: hidden;
+/* CLASE CORREGIDA: Coincide perfectamente con el script de JavaScript */
+#pantalla-carga.oculto {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none;
 }
 
 /* ==========================================
@@ -113,7 +115,7 @@ header h1 {
 }
 
 /* ==========================================
-   BARRA DE CATEGORÍAS ELEGANTE (CORREGIDA)
+   BARRA DE CATEGORÍAS ELEGANTE
    ========================================== */
 .categorias-contenedor {
     display: flex !important;
@@ -136,17 +138,16 @@ header h1 {
     cursor: pointer;
     transition: all 0.3s ease !important;
     box-shadow: 0 2px 5px rgba(0,0,0,0.02) !important;
-    -webkit-appearance: none; /* Quita el diseño por defecto de celulares */
+    -webkit-appearance: none;
     appearance: none;
 }
 
 .btn-categoria.activo, .btn-categoria:hover {
-    background-color: #b57c7c !important; /* Rosa de JADARA */
+    background-color: #b57c7c !important;
     color: #ffffff !important;
     border-color: #b57c7c !important;
     box-shadow: 0 4px 10px rgba(181, 124, 124, 0.2) !important;
 }
-
 
 /* ==========================================
    CUADRÍCULA DE PRODUCTOS (ESCRITORIO)
@@ -187,7 +188,6 @@ header h1 {
     box-shadow: 0 15px 30px rgba(181, 124, 124, 0.2);
 }
 
-/* Fotos estáticas normales */
 .foto-producto {
     width: 100%;
     height: 320px;
@@ -236,6 +236,58 @@ header h1 {
     font-weight: bold;
     color: #b57c7c;
     margin-bottom: 20px;
+}
+
+/* ==========================================
+   DISEÑO DE BOTONES DE TALLAS MODERNOS
+   ========================================== */
+.contenedor-tallas-moderno {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 15px;
+    align-items: center; /* Centrado para que encaje con tu info-producto */
+    width: 100%;
+}
+
+.talla-titulo {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #7a685d;
+}
+
+.grupo-tallas {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn-talla {
+    background-color: #ffffff;
+    border: 1px solid #f0e6e1;
+    color: #7a685d;
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 38px;
+    text-align: center;
+}
+
+.btn-talla.seleccionada {
+    background-color: #b57c7c; /* Rosa JADARA */
+    color: #ffffff;
+    border-color: #b57c7c;
+    font-weight: 700;
+    box-shadow: 0 2px 6px rgba(181, 124, 124, 0.3);
+}
+
+.btn-talla:hover:not(.seleccionada) {
+    border-color: #b57c7c;
+    color: #b57c7c;
 }
 
 /* ==========================================
@@ -299,7 +351,7 @@ header h1 {
 .indicador-deslizar {
     position: absolute;
     top: 10px;
-    left: 10px; /* Cambiado a la izquierda para que nunca se corte con el borde lateral */
+    left: 10px;
     background: rgba(181, 124, 124, 0.85);
     color: white;
     padding: 5px 12px;
@@ -310,7 +362,6 @@ header h1 {
     z-index: 10;
     letter-spacing: 0.5px;
 }
-
 
 /* ==========================================
    PIE DE PÁGINA
@@ -353,34 +404,15 @@ footer {
         font-size: 0.8rem;
     }
 
-    /* 2 Columnas perfectas tipo Instagram Shop */
+    /* Aquí cerramos correctamente tu cuadrícula móvil estilo Instagram Shop */
     .catalogo {
         grid-template-columns: repeat(2, 1fr) !important;
-        gap: 12px !important;
-        padding: 15px 10px !important;
+        gap: 15px;
+        padding: 15px 10px;
     }
 
-    .tarjeta-producto {
-        border-radius: 12px;
-    }
-
-    /* Fotos a 230px */
-    .foto-producto, 
-    .carrusel-contenedor {
-        height: 230px !important; 
-        padding: 5px !important;
-    }
-    
-    .carrusel-foto {
-        max-height: 230px !important;
-        padding: 5px !important;
-    }
-
-    .indicador-deslizar {
-        top: 8px;
-        right: 8px;
-        padding: 3px 8px;
-        font-size: 0.65rem;
+    .foto-producto, .carrusel-contenedor, .carrusel-foto {
+        height: 180px;
     }
 
     .info-producto {
@@ -388,117 +420,16 @@ footer {
     }
 
     .info-producto h3 {
-        font-size: 0.95rem;
-        margin-bottom: 4px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-    .descripcion {
-        font-size: 0.8rem;
-        margin-bottom: 10px;
-        height: auto;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
+        font-size: 1rem;
     }
 
     .precio {
         font-size: 1.1rem;
-        margin-bottom: 12px;
+        margin-bottom: 10px;
     }
 
     .btn-whatsapp {
-        padding: 10px 10px;
-        font-size: 0.85rem;
-        letter-spacing: 0px;
+        padding: 10px 12px;
+        font-size: 0.8rem;
     }
-}
-
-/* ==========================================
-   ESTILOS PREMIUM PARA EL SELECTOR DE TALLAS
-   ========================================== */
-.contenedor-talla {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 15px;
-}
-
-.contenedor-talla label {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #555;
-    font-family: var(--fuente-cuerpo);
-}
-
-.select-talla {
-    padding: 6px 12px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-family: var(--fuente-cuerpo);
-    font-size: 0.9rem;
-    background-color: #fff;
-    color: #333;
-    cursor: pointer;
-    outline: none;
-    transition: border-color 0.3s;
-}
-
-.select-talla:focus {
-    border-color: var(--color-secundario);
-}
-
-/* ==========================================
-   DISEÑO PREMIUM DE TALLAS EN BOTONES MODERNOS
-   ========================================== */
-.contenedor-tallas-moderno {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    margin-bottom: 15px;
-    align-items: flex-start;
-}
-
-.talla-titulo {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #666;
-    font-family: var(--fuente-cuerpo);
-}
-
-.grupo-tallas {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-}
-
-.btn-talla {
-    background-color: #ffffff;
-    border: 1px solid #e0e0e0;
-    color: #333;
-    padding: 6px 12px;
-    font-size: 0.85rem;
-    font-family: var(--fuente-cuerpo);
-    font-weight: 500;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    min-width: 38px;
-    text-align: center;
-}
-
-/* Estilo para el botón que el cliente toca o selecciona */
-.btn-talla.seleccionada {
-    background-color: var(--color-primario); /* Usa tu color negro de JADARA */
-    color: #ffffff;
-    border-color: var(--color-primario);
-    font-weight: 700;
-}
-
-.btn-talla:hover:not(.seleccionada) {
-    border-color: var(--color-secundario);
-    color: var(--color-secundario);
 }
