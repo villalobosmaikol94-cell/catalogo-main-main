@@ -229,36 +229,69 @@
     </footer>
 
     <!-- INTERACCIONES EN VIVO GENERALES COMPLETAMENTE REPARADAS -->
-    <script>
-        // Ocultar pantalla de bienvenida
+       <script>
+        // ==========================================
+        // 1. PANTALLA DE CARGA (SPLASH SCREEN)
+        // ==========================================
         window.addEventListener('load', () => {
-            setTimeout(() => {
-                const pantalla = document.getElementById('pantalla-carga');
-                if (pantalla) pantalla.classList.add('ocultar-carga');
-            }, 1300);
+            const pantallaCarga = document.getElementById('pantalla-carga');
+            if (pantallaCarga) {
+                setTimeout(() => {
+                    pantallaCarga.classList.add('oculto');
+                }, 1300);
+            }
         });
 
-        // Función global de Filtros corregida y cerrada correctamente
+        // ==========================================
+        // 2. FUNCIÓN DE FILTROS CORREGIDA
+        // ==========================================
         function filtrarProductos(filtro) {
-            // Cambiar estado del botón activo
             const botones = document.querySelectorAll('.btn-categoria');
             botones.forEach(btn => btn.classList.remove('activo'));
-            
-            if (event && event.target) {
-                event.target.classList.add('activo');
+
+            // Activamos el botón basándonos en su atributo data-filter
+            const botonActivo = document.querySelector(`.btn-categoria[data-filter="${filtro}"]`);
+            if (botonActivo) {
+                botonActivo.classList.add('activo');
             }
 
-            // Filtrar las tarjetas físicas de productos
             const tarjetas = document.querySelectorAll('.tarjeta-producto');
             tarjetas.forEach(tarjeta => {
                 const categoria = tarjeta.getAttribute('data-category');
                 if (filtro === 'todo' || categoria === filtro) {
-                    tarjeta.style.display = "block";
+                    tarjeta.style.display = 'flex'; // Usamos flex para que mantenga el diseño CSS
                 } else {
-                    tarjeta.style.display = "none";
+                    tarjeta.style.display = 'none';
                 }
             });
         }
+        // ==========================================
+        // 3. ENVIAR PEDIDO A WHATSAPP CON TALLA
+        // ==========================================
+        document.addEventListener('click', function(e) {
+            if (e.target && e.target.classList.contains('btn-pedido-whatsapp')) {
+                e.preventDefault();
+                
+                const boton = e.target;
+                const tarjeta = boton.closest('.tarjeta-producto');
+                
+                const nombreProducto = tarjeta.querySelector('.nombre-prod').innerText;
+                const precioProducto = tarjeta.querySelector('.precio').getAttribute('data-precio');
+                const numeroTelefono = boton.getAttribute('data-phone');
+                
+                let mensaje = `Hola JADARA, me interesa el producto *${nombreProducto}* de ${precioProducto}`;
+                
+                const selectorTalla = tarjeta.querySelector('.select-talla');
+                if (selectorTalla) {
+                    const tallaSeleccionada = selectorTalla.value;
+                    mensaje += ` en *Talla: ${tallaSeleccionada}*`;
+                }
+                
+                const urlWhatsApp = `https://wa.me{numeroTelefono}?text=${encodeURIComponent(mensaje)}`;
+                window.open(urlWhatsApp, '_blank');
+            }
+        });
     </script>
+
 </body>
 </html>
