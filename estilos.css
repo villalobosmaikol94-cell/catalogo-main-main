@@ -435,3 +435,62 @@ footer {
         font-size: 0.8rem;
     }
 }
+
+
+/* ==========================================
+   ESTILOS PREMIUM PARA EL ZOOM DE FOTOS (MODAL)
+   ========================================== */
+.foto-producto, .carrusel-foto {
+    cursor: zoom-in;
+}
+
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 10000; 
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9); 
+}
+
+.contenido-modal {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 80vh;
+    border-radius: 12px;
+    object-fit: contain;
+    background-color: #fff; 
+    padding: 10px;
+    animation: zoomEfecto 0.3s ease;
+}
+
+@keyframes zoomEfecto {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.cerrar-modal {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.cerrar-modal:hover {
+    color: #b57c7c; 
+}
+
+@media only screen and (max-width: 700px){
+    .contenido-modal { max-width: 95%; padding: 5px; }
+    .cerrar-modal { right: 20px; top: 10px; font-size: 35px; }
+}
+
