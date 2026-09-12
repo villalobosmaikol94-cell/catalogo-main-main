@@ -62,12 +62,14 @@ body {
     to { transform: scale(1); opacity: 1; }
 }
 
-/* CLASE CORREGIDA: Coincide perfectamente con el script de JavaScript */
+/* REGLA CORREGIDA: Fuerza la desaparición total de la portada */
 #pantalla-carga.oculto {
     opacity: 0 !important;
     visibility: hidden !important;
-    pointer-events: none;
+    display: none !important; /* Apaga el flex anterior por completo */
+    pointer-events: none !important;
 }
+
 
 /* ==========================================
    NUEVO ENCABEZADO COMPACTO Y ELEGANTE
