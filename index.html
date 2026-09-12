@@ -230,10 +230,9 @@
     </footer>
 
     <!-- INTERACCIONES EN VIVO GENERALES COMPLETAMENTE REPARADAS -->
-           <script>
-        // ==========================================
+               <!-- EN CONTRAPOSICIÓN CON CUALQUIER OTRA ESTRUCTURA, ESTE BLOQUE DEBE QUEDAR COMPLETAMENTE CERRADO -->
+    <script>
         // 1. PANTALLA DE CARGA (SPLASH SCREEN)
-        // ==========================================
         window.addEventListener('load', () => {
             const pantallaCarga = document.getElementById('pantalla-carga');
             if (pantallaCarga) {
@@ -243,9 +242,7 @@
             }
         });
 
-        // ==========================================
-        // 2. FUNCIÓN DE FILTROS CORREGIDA
-        // ==========================================
+        // 2. FUNCIÓN DE FILTROS PARA LAS CATEGORÍAS
         function filtrarProductos(filtro) {
             const botones = document.querySelectorAll('.btn-categoria');
             botones.forEach(btn => btn.classList.remove('activo'));
@@ -266,36 +263,37 @@
             });
         }
 
-        // ==========================================
-        // 3. SELECCIÓN DE BOTONES DE TALLAS
-        // ==========================================
+        // 3. INTERACTIVIDAD PARA HACER CLIC EN LOS BOTONES DE TALLAS
         document.addEventListener('click', function(e) {
             if (e.target && e.target.classList.contains('btn-talla')) {
                 const grupo = e.target.closest('.grupo-tallas');
-                grupo.querySelectorAll('.btn-talla').forEach(btn => {
-                    btn.classList.remove('seleccionada');
-                });
-                e.target.classList.add('seleccionada');
+                if (grupo) {
+                    grupo.querySelectorAll('.btn-talla').forEach(btn => {
+                        btn.classList.remove('seleccionada');
+                    });
+                    e.target.classList.add('seleccionada');
+                }
             }
         });
 
-        // ==========================================
-        // 4. ENVIAR PEDIDO A WHATSAPP CON LA TALLA DEL BOTÓN
-        // ==========================================
+        // 4. CONTROL DE CLIC EN EL BOTÓN DE PEDIDO DE WHATSAPP
         document.addEventListener('click', function(e) {
             if (e.target && e.target.classList.contains('btn-pedido-whatsapp')) {
                 e.preventDefault();
                 
                 const boton = e.target;
                 const tarjeta = boton.closest('.tarjeta-producto');
+                if (!tarjeta) return;
                 
-                const nombreProducto = tarjeta.querySelector('.nombre-prod').innerText;
-                const precioProducto = tarjeta.querySelector('.precio').getAttribute('data-precio');
-                const numeroTelefono = boton.getAttribute('data-phone');
+                const elementoNombre = tarjeta.querySelector('.nombre-prod');
+                const elementoPrecio = tarjeta.querySelector('.precio');
+                
+                const nombreProducto = elementoNombre ? elementoNombre.innerText : "Producto";
+                const precioProducto = elementoPrecio ? (elementoPrecio.getAttribute('data-precio') || elementoPrecio.innerText) : "";
+                const numeroTelefono = boton.getAttribute('data-phone') || "573246670248";
                 
                 let mensaje = `Hola JADARA, me interesa el producto *${nombreProducto}* de ${precioProducto}`;
                 
-                // Buscamos el botón de talla que tiene la clase 'seleccionada' en este zapato
                 const botonTallaActivo = tarjeta.querySelector('.btn-talla.seleccionada');
                 if (botonTallaActivo) {
                     const tallaSeleccionada = botonTallaActivo.getAttribute('data-talla');
@@ -307,7 +305,6 @@
             }
         });
     </script>
-
-
 </body>
 </html>
+
