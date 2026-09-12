@@ -416,3 +416,38 @@ footer {
         letter-spacing: 0px;
     }
 }
+
+/* ==========================================
+   ESTILOS PREMIUM PARA EL SELECTOR DE TALLAS
+   ========================================== */
+.contenedor-talla {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.contenedor-talla label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #555;
+    font-family: var(--fuente-cuerpo);
+}
+
+.select-talla {
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: var(--fuente-cuerpo);
+    font-size: 0.9rem;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.select-talla:focus {
+    border-color: var(--color-secundario);
+}
+
