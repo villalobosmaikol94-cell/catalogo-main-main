@@ -304,6 +304,26 @@
                 window.open(urlWhatsApp, '_blank');
             }
         });
+                // ==========================================
+        // 5. EFECTO ZOOM / EXPANDIR FOTOS AL DAR CLIC
+        // ==========================================
+        document.addEventListener('click', function(e) {
+            if (e.target && (e.target.classList.contains('foto-producto') || e.target.classList.contains('carrusel-foto'))) {
+                const modal = document.getElementById('modal-zoom');
+                const imagenAmpliada = document.getElementById('imagen-ampliada');
+                if (modal && imagenAmpliada) {
+                    modal.style.display = "block";
+                    imagenAmpliada.src = e.target.src;
+                }
+            }
+            if (e.target && (e.target.classList.contains('cerrar-modal') || e.target.id === 'modal-zoom')) {
+                const modal = document.getElementById('modal-zoom');
+                if (modal) {
+                    modal.style.display = "none";
+                }
+            }
+        });
+
     </script>
 </body>
 </html>
