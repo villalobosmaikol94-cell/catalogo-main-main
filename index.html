@@ -44,36 +44,60 @@
     <main class="catalogo">
 
         <!-- PRODUCTO 1: SKECHERS -->
-        <div class="tarjeta-producto" data-category="calzado">
-            <div style="position: relative; width: 100%;">
-                <div class="indicador-deslizar">↔ Desliza color</div>
-                <div class="carrusel-contenedor">
-                    <img src="skechers-max.png" alt="Skechers Max Slip Negra" class="carrusel-foto">
-                    <img src="skechers-max-gris.png" alt="Skechers Max Slip Gris" class="carrusel-foto">
-                </div>
-            </div>
-            <div class="info-producto">
-                <h3>Skechers Max Slip</h3>
-                <p class="descripcion">Máximo confort y amortiguación sin cordones. Disponibles en Gris y Negro. <br><strong>Tallas: 44 y 45.</strong></p>
-                <span class="precio">$155.000 COP</span>
-                <a href="whatsapp://send?phone=573246670248&text=Hola%20JADARA,%20me%20interesan%20las%20Skechers%20Max%20Slip%20de%20$155.000" class="btn-whatsapp">
-                    Pedir por WhatsApp
-                </a>
-            </div>
+<div class="tarjeta-producto" data-category="calzado">
+    <div style="position: relative; width: 100%;">
+        <div class="indicador-deslizar">↔ Desliza color</div>
+        <div class="carrusel-contenedor">
+            <img src="skechers-max.png" alt="Skechers Max Slip Negra" class="carrusel-foto">
+            <img src="skechers-max-gris.png" alt="Skechers Max Slip Gris" class="carrusel-foto">
+        </div>
+    </div>
+    <div class="info-producto">
+        <h3 class="nombre-prod">Skechers Max Slip</h3>
+        <p class="descripcion">Máximo confort y amortiguación sin cordones. Disponibles en Gris y Negro.</p>
+        
+        <!-- Menú de tallas -->
+        <div class="contenedor-talla">
+            <label for="talla-skechers">Talla:</label>
+            <select id="talla-skechers" class="select-talla">
+                <option value="44">44</option>
+                <option value="45">45</option>
+            </select>
         </div>
 
-        <!-- PRODUCTO 2: NIKE SHOX -->
-        <div class="tarjeta-producto" data-category="calzado">
-            <img src="nikeshoxtl.png" alt="Nike Shox TL" class="foto-producto">
-            <div class="info-producto">
-                <h3>Nike Shox TL</h3>
-                <p class="descripcion">Diseño icónico con columnas de amortiguación expuestas, estilo urbano y máxima resistencia.</p>
-                <span class="precio">$170.000 COP</span>
-                <a href="whatsapp://send?phone=573246670248&text=Hola%20JADARA,%20me%20interesan%20las%20Nike%20Shox%20TL%20de%20$170.000" class="btn-whatsapp">
-                    Pedir por WhatsApp
-                </a>
-            </div>
+        <span class="precio" data-precio="$155.000">$155.000 COP</span>
+        <a href="#" class="btn-whatsapp btn-pedido-whatsapp" data-phone="573246670248">
+            Pedir por WhatsApp
+        </a>
+    </div>
+</div>
+
+<!-- PRODUCTO 2: NIKE SHOX -->
+<div class="tarjeta-producto" data-category="calzado">
+    <img src="nikeshoxtl.png" alt="Nike Shox TL" class="foto-producto">
+    <div class="info-producto">
+        <h3 class="nombre-prod">Nike Shox TL</h3>
+        <p class="descripcion">Diseño icónico con columnas de amortiguación expuestas, estilo urbano y máxima resistencia.</p>
+        
+        <!-- Menú de tallas -->
+        <div class="contenedor-talla">
+            <label for="talla-shox">Talla:</label>
+            <select id="talla-shox" class="select-talla">
+                <option value="38">38</option>
+                <option value="39">39</option>
+                <option value="40">40</option>
+                <option value="41">41</option>
+                <option value="42">42</option>
+            </select>
         </div>
+
+        <span class="precio" data-precio="$170.000">$170.000 COP</span>
+        <a href="#" class="btn-whatsapp btn-pedido-whatsapp" data-phone="573246670248">
+            Pedir por WhatsApp
+        </a>
+    </div>
+</div>
+
 
         <!-- PRODUCTO 3: NIKE ZOOM SUPERCAR (CABALLERO) -->
         <div class="tarjeta-producto" data-category="calzado">
