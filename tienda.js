@@ -22,13 +22,14 @@ document.addEventListener('click', function(e) {
             e.target.classList.add('seleccionada');
         }
     }
-    if (e.target && e.target.classList.contains('btn-color')) {
+        if (e.target && e.target.classList.contains('btn-color-texto')) {
         const grupo = e.target.closest('.grupo-colores');
         if (grupo) {
-            grupo.querySelectorAll('.btn-color').forEach(btn => btn.classList.remove('seleccionada'));
+            grupo.querySelectorAll('.btn-color-texto').forEach(btn => btn.classList.remove('seleccionada'));
             e.target.classList.add('seleccionada');
         }
     }
+
 });
 
 // AGREGAR PRODUCTOS AL CARRITO CON COLOR
@@ -44,7 +45,7 @@ document.addEventListener('click', function(e) {
         const botonTalla = tarjeta.querySelector('.btn-talla.seleccionada');
         const talla = botonTalla ? botonTalla.getAttribute('data-talla') : null;
 
-        const botonColor = tarjeta.querySelector('.btn-color.seleccionada');
+        const botonColor = tarjeta.querySelector('.btn-color-texto.seleccionada');
         const color = botonColor ? botonColor.getAttribute('data-color') : null;
 
         const precioNumero = parseInt(precioTexto.replace(/[^0-9]/g, ''));
