@@ -406,6 +406,12 @@ footer {
         font-size: 0.8rem;
     }
 
+        /* Ajusta el ancho de la barra en celulares para que no tape todo el catálogo */
+    #carrito-lateral {
+        width: 80% !important;
+        max-width: 80% !important;
+    }
+
     /* Aquí cerramos correctamente tu cuadrícula móvil estilo Instagram Shop */
     .catalogo {
         grid-template-columns: repeat(2, 1fr) !important;
